@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link href="css/menustyles.css" rel="stylesheet" type="text/css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/scripts.js"></script>
   <title>Pizzeria Sul Suono</title>
   </head>
   <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Left</a>
+            </li>
+        </ul>
+        <div class="mx-auto order-0" id="title">
+            <a class="navbar-brand mx-auto" href="home.html">Pizzeria Sul Suno</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Right</a>
+            </li>
+        </ul>
+    </nav>
     <div class="container">
-      <div class ="jumbotron">
-        <h1>Something</h1>
-      </div>
-        <form id="formOne">
-          <div class="form-group">
-            <label for="age">Enter your age</label>
-            <input type="text"  class="form-control" id="age">
-          </div>
-          <div class="form-group">
-            <label for="movie">Select which movie you want to see</label>
-            <select class="form-control" id="movie-title">
-              <option value="18">Glass</option>
-              <option value="18">How to Train Your Dragon</option>
-              <option value="18">Aquaman</option>
-              <option value="18">Dragonball Super: Broly</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="time">Select showing time</label>
-            <select class="form-control" id="time">
-              <option value="10:00">10:00</option>
-              <option value="12:00">12:00</option>
-              <option value="15:00">15:00</option>
-              <option value="20:00">20:00</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="discount">Do you have a valid Military ID?</label>
-            <select class="form-control" id="discount">
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-          </div>
-          <br>
-          <button type="submit">Submit</button>
-        </form>
+        <h2 id="header">Customize Your Pizza</h2>
         <hr>
+        <form id="formOne">
 
-          <div class="card">
-            <h2>Cart</h2>
-            <ol>
-              Movie: <span class="title"></span><br>
-              Time: <span class="time"></span><br>
-              Cost: <span class="totalCost"></span>
-            </ol>
-          </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="size" class="label">Size</label>
+                    <select class="form-control" id="pSize">
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="Extra-Large">Extra Large</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="sauce" class="label">Sauce</label>
+                    <select class="form-control" id="pSauce">
+                        <option value="Pesto">Pesto</option>
+                        <option value="Olive Oil">Olive Oil</option>
+                        <option value="Red Sauce">Red Sauce</option>
+                    </select>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="pMeat">
+
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+        </form>
+            
     </div>
   </body>
 </html>
