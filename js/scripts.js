@@ -59,4 +59,18 @@ Pizza.prototype.price = function() {
 }
 
 
+// user logic
+$(document).ready(function() {
+  $("form#formOne").submit(function() {
+    var pSize = $("#pSize").val();
+    var pSauce = $("pSauce").val();
+    
+    pCheese = [];
+    pMeat = [];
+    pPremTopping = [];
+    pTopping = [];
+
+    
+  });
+
 
