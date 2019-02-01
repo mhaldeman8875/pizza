@@ -29,7 +29,6 @@
         <h2 id="header">Customize Your Pizza</h2>
         <hr>
         <form id="formOne">
-
             <div class="row">
                 <div class="col-md-6">
                     <label for="size" class="label">Size</label>
@@ -50,7 +49,7 @@
                 </div>
             </div>
             <br>
-            <!-- For checkbox section -->
+            <!-- For checkbox seco -->
             <div class="row">
                 <div class="col-md-4" id="cheese">
                     <h5>Cheeses</h5>
@@ -97,9 +96,29 @@
                         <label class="custom-control-label" for="olives">Olives</label>
                     </div>
                 </div>
-            </div>
 
+            </div>
+            <br>
+            <button class="btn" type="submit">Checkout</button>
         </form>
+
+        <br><br>
+          <div class="card" id="invoice">
+            <h2 class="cart">Invoice</h2>
+            <hr>
+            <p>
+            Thank you for ordering from Pizzeria Sul Suno! You have ordered:
+            <ol>
+                <li><span class="pizzaSize"></span>Pizza<br></li>
+                    <ul>
+                        
+                    </ul>
+            </ol>
+
+            Total: <span class="totalCost"></span>
+            </p>
+          </div>
+
 
     </div>
 </body>
