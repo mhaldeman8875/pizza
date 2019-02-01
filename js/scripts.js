@@ -1,10 +1,14 @@
+//Business Logic
+
+
 //Logic for Pizza Constructor
-function Pizza(pSize, pSauce, pCheese, pMeat, pTopping) {
+function Pizza() {
+  
   this.pSize = pSize,
   this.pSauce = pSauce,
   this.pCheese = pCheese,
   this.pMeat = pMeat,
-  this.pTopping = pTopping,
+  this.pTopping = pTopping
 
   this.sizePrice = {
     Small: 3,
@@ -32,24 +36,27 @@ function Pizza(pSize, pSauce, pCheese, pMeat, pTopping) {
     Artichoke: .50,
     Olives: .25
   }
-
-  this.totalPrice = function() {
-    var price = 0;
-    price += this.sizePrize[this.pSize];
-    price += this.saucePrice[this.p];
-
-    for (i=0; i<this.pMeat.length; i++) {
-      price += this.meatPrice[this.pMeat[i]];
-    }
-
-    for (i=0; i<this.pCheese.length; i++) {
-      price += this.cheesePrice[this.pCheese[i]];
-    }
-    
-    for (i=0; i<this.pTopping.length; i++) {
-      price += this.toppingPrice[this.pTopping[i]];
-    }
-
-    return price;
-  }
 }
+
+Pizza.prototype.price = function() {
+  var price = 0;
+  price += this.sizePrize[this.pSize];
+  price += this.saucePrice[this.p];
+
+  for (var i=0; i<this.pMeat.length; i++) {
+    price += this.meatPrice[this.pMeat[i]];
+  }
+
+  for (var i=0; i<this.pCheese.length; i++) {
+    price += this.cheesePrice[this.pCheese[i]];
+  }
+  
+  for (var i=0; i<this.pTopping.length; i++) {
+    price += this.toppingPrice[this.pTopping[i]];
+  }
+
+  return price;
+}
+
+
+
