@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <title>Pizzeria Sul Suono</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class ="jumbotron">
+        <h1>Something</h1>
+      </div>
+        <form id="formOne">
+          <div class="form-group">
+            <label for="age">Enter your age</label>
+            <input type="text"  class="form-control" id="age">
+          </div>
+          <div class="form-group">
+            <label for="movie">Select which movie you want to see</label>
+            <select class="form-control" id="movie-title">
+              <option value="18">Glass</option>
+              <option value="18">How to Train Your Dragon</option>
+              <option value="18">Aquaman</option>
+              <option value="18">Dragonball Super: Broly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="time">Select showing time</label>
+            <select class="form-control" id="time">
+              <option value="10:00">10:00</option>
+              <option value="12:00">12:00</option>
+              <option value="15:00">15:00</option>
+              <option value="20:00">20:00</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="discount">Do you have a valid Military ID?</label>
+            <select class="form-control" id="discount">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <br>
+          <button type="submit">Submit</button>
+        </form>
+        <hr>
+
+          <div class="card">
+            <h2>Cart</h2>
+            <ol>
+              Movie: <span class="title"></span><br>
+              Time: <span class="time"></span><br>
+              Cost: <span class="totalCost"></span>
+            </ol>
+          </div>
+
+    </div>
+  </body>
+</html>
