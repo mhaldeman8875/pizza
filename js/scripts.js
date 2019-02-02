@@ -1,14 +1,13 @@
-//Business Logic
-
 
 //Logic for Pizza Constructor
-function Pizza(pSize, pSauce, pCheese, pMeat, pTopping) {
-  
-  this.pSize = pSize,
-  this.pSauce = pSauce,
-  this.pCheese = pCheese,
-  this.pMeat = pMeat,
-  this.pTopping = pTopping
+function Pizza(id, pSize, pSauce, cheese, meat, topping) {
+  this.id = id;
+  this.pSize = pSize;
+  this.pSauce = pSauce;
+  this.cheese = cheese;
+  this.meat = meat;
+  this.topping = topping;
+  this.totalCost = 0;
 
   this.sizePrice = {
     Small: 3,
@@ -18,73 +17,88 @@ function Pizza(pSize, pSauce, pCheese, pMeat, pTopping) {
   }
 
   this.saucePrice = {
-    Any: 1.00
+    Pesto: 1,
+    Olive: 1,
+    Red: 1
   }
 
   this.cheesePrice = {
-    Ricotta: .25,
-    Mozzarella: .25,
-    Parmesan: .25
+    ricotta: .25,
+    mozzarella: .25,
+    parmesan: .25
   }
 
   this.meatPrice = {
-    Sausage: .50,
-    Prosciutto: 1.00,
-    Chicken: .50
+    sausage: .50,
+    prosciutto: 1.00,
+    chicken: .50
   }
 
   this.toppingPrice = {
-    Spinach: .25,
-    Artichoke: .50,
-    Olives: .25
+    spinach: .25,
+    artichoke: .50,
+    olives: .25
   }
 }
+  Pizza.prototype.price = function() {
+  
+    this.totalCost += this.sizePrize[this.pSize];
+    this.totalCost += this.saucePrice[this.pSauce];
+    for (i=0; i<this.meat.length; i++) {
+      price += this.meatPrice[this.meat[i]];
+    }
+    for (i=0; i<this.cheese.length; i++) {
+      price += this.cheesePrice[this.cheese[i]];
+    }
+    for (i=0; i<this.topping.length; i++) {
+      price += this.toppingPrice[this.topping[i]];
+    }
+    return this.totalCost
+  };
 
-Pizza.prototype.price = function() {
-  var price = 0;
-  price += this.sizePrize[this.pSize];
-  price += this.saucePrice[this.pSauce];
-  for (i=0; i<this.pMeat.length; i++) {
-    price += this.meatPrice[this.pMeat[i]];
-  }
-  for (i=0; i<this.pCheese.length; i++) {
-    price += this.cheesePrice[this.pCheese[i]];
-  }
-  for (i=0; i<this.pTopping.length; i++) {
-    price += this.toppingPrice[this.pTopping[i]];
-  }
-  return price;
-}
 
-var newPizza = new Pizza();
-// user logic
+// Pizza.prototype.price = function() {
+//   if (this.pSize === "Small" && this.cheese) {
+//     this.pSize.price = 3.00;
+//   } else if (this.pSize === "Medium") {
+//     this.pSize.price = 5.00;
+//   } else if (this.pSize === "Large") {
+//     this.pSize.price = 8.00;
+//   } else {
+//     this.pSize.price = 10.00;
+//   }
+// }
+
 $(document).ready(function() {
   $("form#formOne").submit(function() {
     event.preventDefault();
 
-    var sizeInput = $("#pSize").val();
-    var sauceInput = $("pSauce").val();
-    cheeseInput = [];
-    eatInput = [];
-    toppingInput = [];
+    var pSize = $("#pSize").val();
+    var pSauce = $("pSauce").val();
+    cheese = [];
+    meat = [];
+    topping = [];
 
     $("input:checkbox[name=cheese]:checked").each(function() {
-      cheeseInput.push($(this).val())
+      cheese.push($(this).val());
     });
 
     $("input:checkbox[name=meat]:checked").each(function() {
-      meatInput.push($(this).val())
+      meat.push($(this).val());
     });
 
     $("input:checkbox[name=pTopping]:checked").each(function() {
-      toppingInput.push($(this).val())
+      topping.push($(this).val());
     });
 
-    var newPizza = new Pizza(pSize, pSauce, pCheese, pMeat, pTopping, pTopping);
+    var newPizza = new Pizza(pizzaId, pSize, pSauce, cheese, meat, topping);
+    
+    newPizza.totalCost();
+    
+    $('.orders').append("<li id=" + newPizza.pizzaId + ">" + (pizzaId + 1) + ". " + size + " " + sauce + "  pizza: $" + Pizza.totalCost.toFixed(2 + "</li>"));
 
-    $(".pizzaSize").append(sizeInput);
 
-  })
-})
+  });
 
+});
 

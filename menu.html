@@ -3,6 +3,7 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/menustyles.css" rel="stylesheet" type="text/css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/pizza.js"></script>
   <script src="js/scripts.js"></script>
   <title>Pizzeria Sul Suono</title>
   </head>
@@ -32,7 +33,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="size" class="label">Size</label>
-                    <select class="form-control" id="pSize">
+                    <select class="form-control" name="pSize">
                         <option value="Small">Small</option>
                         <option value="Medium">Medium</option>
                         <option value="Large">Large</option>
@@ -41,10 +42,10 @@
                 </div>
                 <div class="col-md-6">
                     <label for="sauce" class="label">Sauce</label>
-                    <select class="form-control" id="pSauce">
+                    <select class="form-control" name="pSauce">
                         <option value="Pesto">Pesto</option>
-                        <option value="Olive Oil">Olive Oil</option>
-                        <option value="Red Sauce">Red Sauce</option>
+                        <option value="Olive">Olive Oil</option>
+                        <option value="Red">Red Sauce</option>
                     </select>
                 </div>
             </div>
@@ -54,45 +55,45 @@
                 <div class="col-md-4" id="pCheese">
                     <h5>Cheeses</h5>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="ricotta" name="cheese">
+                        <input value="ricotta" type="checkbox" class="custom-control-input" id="ricotta" name="cheese">
                         <label class="custom-control-label" for="ricotta">Ricotta</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="mozzarella" name="cheese">
+                        <input type="checkbox" class="custom-control-input" id="mozzarella" name="cheese" value="mozzarella">
                         <label class="custom-control-label" for="mozzarella">Mozzarella</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="parmesan" name="cheese">
+                        <input type="checkbox" class="custom-control-input" id="parmesan" name="cheese" value="parmesan">
                         <label class="custom-control-label" for="parmesan">Parmesan</label>
                     </div>
                 </div>
                 <div class="col-md-4" id="pMeat">
                     <h5>Meats</h5>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="sausage" name="meat">
+                        <input type="checkbox" class="custom-control-input" id="sausage" name="meat" value="sausage">
                         <label class="custom-control-label" for="sausage">Sausage</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="prosciutto" name="meat">
+                        <input type="checkbox" class="custom-control-input" id="prosciutto" name="meat" value="prosciutto">
                         <label class="custom-control-label" for="prosciutto">Prosciutto</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="chicken" name="meat">
+                        <input type="checkbox" class="custom-control-input" id="chicken" name="meat" value="chicken">
                         <label class="custom-control-label" for="chicken">Chicken</label>
                     </div>
                 </div>
                 <div class="col-md-4" id="pTopping">
                     <h5>Toppings</h5>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="spinach" name="topping">
+                        <input type="checkbox" class="custom-control-input" id="spinach" name="topping" value="spinach">
                         <label class="custom-control-label" for="spinach">Spinach</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="artichoke" name="topping">
+                        <input type="checkbox" class="custom-control-input" id="artichoke" name="topping" value="artichoke">
                         <label class="custom-control-label" for="artichoke">Artichoke</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="olives" name="topping">
+                        <input type="checkbox" class="custom-control-input" id="olives" name="topping" value="olives">
                         <label class="custom-control-label" for="olives">Olives</label>
                     </div>
                 </div>
@@ -105,17 +106,17 @@
         <br><br>
           <div class="card" id="invoice">
             <h2 class="cart">Invoice</h2>
-            <hr>
-            Thank you for ordering from Pizzeria Sul Suno! You have ordered:
-            <ol>
-                <li><span class="pizzaSize"></span>Pizza<br></li>
-                    <ul>
-
-                    </ul>
-            </ol>
-
-            Total: <span class="totalCost"></span>
-            </p>
+            
+            <div id="orderRecap">
+                <h3>Total:</h3>
+                <div id="total"></div>
+            </div>
+            <div id="orderList">
+                <h3>Order:</h3>
+                <ul class='orders'>
+                </ul>
+            </div>
+            <div id='price'></div>
           </div>
 
 
