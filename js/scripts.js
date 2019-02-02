@@ -2,7 +2,7 @@
 
 
 //Logic for Pizza Constructor
-function Pizza() {
+function Pizza(pSize, pSauce, pCheese, pMeat, pTopping) {
   
   this.pSize = pSize,
   this.pSauce = pSauce,
@@ -17,7 +17,9 @@ function Pizza() {
     XLarge: 11
   }
 
-  this.saucePrice = 1.00
+  this.saucePrice = {
+    Any: 1.00
+  }
 
   this.cheesePrice = {
     Ricotta: .25,
@@ -41,36 +43,48 @@ function Pizza() {
 Pizza.prototype.price = function() {
   var price = 0;
   price += this.sizePrize[this.pSize];
-  price += this.saucePrice[this.p];
-
-  for (var i=0; i<this.pMeat.length; i++) {
+  price += this.saucePrice[this.pSauce];
+  for (i=0; i<this.pMeat.length; i++) {
     price += this.meatPrice[this.pMeat[i]];
   }
-
-  for (var i=0; i<this.pCheese.length; i++) {
+  for (i=0; i<this.pCheese.length; i++) {
     price += this.cheesePrice[this.pCheese[i]];
   }
-  
-  for (var i=0; i<this.pTopping.length; i++) {
+  for (i=0; i<this.pTopping.length; i++) {
     price += this.toppingPrice[this.pTopping[i]];
   }
-
   return price;
 }
 
-
+var newPizza = new Pizza();
 // user logic
 $(document).ready(function() {
   $("form#formOne").submit(function() {
-    var pSize = $("#pSize").val();
-    var pSauce = $("pSauce").val();
-    
-    pCheese = [];
-    pMeat = [];
-    pPremTopping = [];
-    pTopping = [];
+    event.preventDefault();
 
-    
-  });
+    var sizeInput = $("#pSize").val();
+    var sauceInput = $("pSauce").val();
+    cheeseInput = [];
+    eatInput = [];
+    toppingInput = [];
+
+    $("input:checkbox[name=cheese]:checked").each(function() {
+      cheeseInput.push($(this).val())
+    });
+
+    $("input:checkbox[name=meat]:checked").each(function() {
+      meatInput.push($(this).val())
+    });
+
+    $("input:checkbox[name=pTopping]:checked").each(function() {
+      toppingInput.push($(this).val())
+    });
+
+    var newPizza = new Pizza(pSize, pSauce, pCheese, pMeat, pTopping, pTopping);
+
+    $(".pizzaSize").append(sizeInput);
+
+  })
+})
 
 
