@@ -1,80 +1,84 @@
 
 //Logic for Pizza Constructor
-function Pizza(id, pSize, pSauce, cheese, meat, topping) {
-  this.id = id;
+function Pizza(pSize, pSauce) {
+  // this.id = id;
   this.pSize = pSize;
-  this.pSauce = pSauce;
-  this.cheese = cheese;
-  this.meat = meat;
-  this.topping = topping;
-  this.totalCost = 0;
+  this.pSauce = pSauce; //all = 1
+  this.cheese = 0; //all = .50
+  this.meat = 0; //all = 1.00
+  this.topping = 0; //all = .25
+  this.price = 0;
 
-  this.sizePrice = {
-    Small: 3,
-    Medium: 5,
-    Large: 8,
-    XLarge: 11
+  // this.sizePrice = {
+  //   Small: 3,
+  //   Medium: 5,
+  //   Large: 8,
+  //   XLarge: 11
+  // }
+
+  // this.saucePrice = {
+  //   Pesto: 1,
+  //   Olive: 1,
+  //   Red: 1
+  // }
+
+  // this.cheesePrice = {
+  //   ricotta: .25,
+  //   mozzarella: .25,
+  //   parmesan: .25
+  // }
+
+  // this.meatPrice = {
+  //   sausage: .50,
+  //   prosciutto: 1.00,
+  //   chicken: .50
+  // }
+
+  // this.toppingPrice = {
+  //   spinach: .25,
+  //   artichoke: .50,
+  //   olives: .25
+  // }
+}
+
+
+Pizza.prototype.sizePrice = function() {
+  if (this.pSize === "Small" && this.cheese) {
+    this.price += 3.00;
+  } else if (this.pSize === "Medium") {
+    this.price += 5.00;
+  } else if (this.pSize === "Large") {
+    this.price += 8.00;
+  } else {
+    this.price += 10.00;
   }
+};
 
-  this.saucePrice = {
-    Pesto: 1,
-    Olive: 1,
-    Red: 1
+Pizza.prototype.saucePrice = function() {
+  if (this.pSauce === "Pesto" || this.pSauce === "Olive" || this.pSauce === "Red") {
+    this.price += 1.00;
   }
+};
 
-  this.cheesePrice = {
-    ricotta: .25,
-    mozzarella: .25,
-    parmesan: .25
-  }
-
-  this.meatPrice = {
-    sausage: .50,
-    prosciutto: 1.00,
-    chicken: .50
-  }
-
-  this.toppingPrice = {
-    spinach: .25,
-    artichoke: .50,
-    olives: .25
+Pizza.prototype.cheesePrice = function() {
+  if(document.getElementById("ricotta").checked) {
+    this.cheese += 1;
+    this.price = this.cheese;
+  } if (document.getElementById("mozzarella").checked) {
+    this.cheese += 1;
+    this.price = this.cheese;
+  } if(document.getElementById("parmesan").checked) {
+    this.cheese += 1;
+    this.price = this.cheese;
   }
 }
-  Pizza.prototype.price = function() {
-  
-    this.totalCost += this.sizePrize[this.pSize];
-    this.totalCost += this.saucePrice[this.pSauce];
-    for (i=0; i<this.meat.length; i++) {
-      price += this.meatPrice[this.meat[i]];
-    }
-    for (i=0; i<this.cheese.length; i++) {
-      price += this.cheesePrice[this.cheese[i]];
-    }
-    for (i=0; i<this.topping.length; i++) {
-      price += this.toppingPrice[this.topping[i]];
-    }
-    return this.totalCost
-  };
-
-
-// Pizza.prototype.price = function() {
-//   if (this.pSize === "Small" && this.cheese) {
-//     this.pSize.price = 3.00;
-//   } else if (this.pSize === "Medium") {
-//     this.pSize.price = 5.00;
-//   } else if (this.pSize === "Large") {
-//     this.pSize.price = 8.00;
-//   } else {
-//     this.pSize.price = 10.00;
-//   }
-// }
 
 $(document).ready(function() {
   $("form#formOne").submit(function() {
     event.preventDefault();
 
     var pSize = $("#pSize").val();
-    var pSauce = $("pSauce").val();
+    var pSauce = $("#pSauce").val();
     cheese = [];
     meat = [];
     topping = [];
