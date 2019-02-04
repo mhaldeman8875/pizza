@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+<head>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/menustyles.css" rel="stylesheet" type="text/css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>
   <title>Pizzeria Sul Suono</title>
   </head>
@@ -36,7 +37,7 @@
                         <option value="Small">Small</option>
                         <option value="Medium">Medium</option>
                         <option value="Large">Large</option>
-                        <option value="Extra-Large">Extra Large</option>
+                        <option value="XLarge">Extra Large</option>
                     </select>
                 </div>
                 <div class="col-md-6">
@@ -105,17 +106,7 @@
         <br><br>
           <div class="card" id="invoice">
             <h2 class="cart">Invoice</h2>
-            
-            <div id="orderRecap">
-                <h3>Total:</h3>
-                <div id="total"></div>
-            </div>
-            <div id="orderList">
-                <h3>Order:</h3>
-                <ul class='orders'>
-                </ul>
-            </div>
-            <div id='price'></div>
+            <p id='price'><span class="total"></span></p>
           </div>
 
 
