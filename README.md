@@ -45,7 +45,7 @@ A webapp that takes the users order of pizza size and various other inputs and p
 * JavaScript
 * jQuery
 
-### GitHub Pages link
-https://tannerdamron.github.io/tannos-pizza/
+### GitHub link
+https://github.com/mhaldeman8875/pizza
 
-Copyright (c) 2019 Tanner Damron.
+Copyright (c) 2019 Madelyn Haldeman.
