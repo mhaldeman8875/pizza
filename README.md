@@ -36,7 +36,7 @@ A webapp that takes the users order of pizza size and various other inputs and p
 * Open in preferred text editor to see all code used
 
 ### Known Bugs
-* No known bugs
+* Due to time constraints, page content and styling will be updated at a later date.
 
 ### Languages/Libraries Used
 * HTML
