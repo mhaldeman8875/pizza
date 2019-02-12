@@ -34,6 +34,7 @@ A webapp that takes the users order of pizza size and various other inputs and p
 * Clone repository
 * Add it to your desktop using "git clone""(repository link).""
 * Open in preferred text editor to see all code used
+* OR view the GH Live Page at  https://mhaldeman8875.github.io/pizza/
 
 ### Known Bugs
 * Due to time constraints, page content and styling will be updated at a later date.
